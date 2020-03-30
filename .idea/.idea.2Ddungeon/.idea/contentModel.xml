@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\KOmpas\2Ddungeon" t="IncludeRecursive">
+      <e p="2Ddungeon.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Five Seamless Tileable Ground Textures" t="Include">
+          <e p="read me.txt" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Enemy.cs" t="Include" />
+          <e p="EnemySpawnerScript.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+          <e p="PlayerMovement.cs" t="Include" />
+          <e p="ScoreScript.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\KOmpas\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\KOmpas\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_2Ddungeon.734405758.00" t="ExcludeRecursive" />
+  </component>
+</project>
