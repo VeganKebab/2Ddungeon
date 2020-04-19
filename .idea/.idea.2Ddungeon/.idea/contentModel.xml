@@ -9,6 +9,7 @@
           <e p="read me.txt" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="AttackScript.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemySpawnerScript.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
