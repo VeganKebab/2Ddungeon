@@ -30,7 +30,7 @@ public class AttackScript : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("we hit:");
+            Debug.Log("we hit:" + enemy.name);
         }
     }
 
