@@ -10,8 +10,10 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AttackScript.cs" t="Include" />
+          <e p="CharHealthScript.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemySpawnerScript.cs" t="Include" />
+          <e p="HealthbarScript.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="ScoreScript.cs" t="Include" />

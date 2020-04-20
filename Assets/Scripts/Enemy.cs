@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,10 +10,15 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float stoppingDistance;
     public float destroyDistance;
+    public float maxHealth;
+    float currentHealth;
+    public int scoreToGive;
+    public Animator animator;
     
     public Transform player;
     void Start()
     {
+        currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -33,8 +40,24 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")){
-            Destroy(gameObject);
-            ScoreScript.score += 1;
+            
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        animator.SetTrigger("hurt");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+        ScoreScript.score += scoreToGive;
     }
 }

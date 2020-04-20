@@ -13,13 +13,26 @@ public class AttackScript : MonoBehaviour
     public float attackRange = 0.5f;
 
     public LayerMask enemyLayers;
+
+    public float attackDamage = 40f;
+
+    public float attackRate = 2f;
+
+    private float nextAttackTime = 0f;
+
+    public CharHealthScript charHealth;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Time.time >= nextAttackTime)
         {
-            AttackFunction();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                AttackFunction();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
+        
     }
 
     void AttackFunction()
@@ -30,7 +43,8 @@ public class AttackScript : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("we hit:" + enemy.name);
+            Debug.Log("Enemy hit");
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
 
@@ -39,5 +53,14 @@ public class AttackScript : MonoBehaviour
         if (attackPoint == null)
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("Enemy"))
+        {
+            charHealth.currentHealth -= 5;
+        }
     }
 }
