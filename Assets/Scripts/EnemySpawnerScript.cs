@@ -6,8 +6,7 @@ public class EnemySpawnerScript : MonoBehaviour
 {
 	public GameObject enemy;
 
-	private float randX;
-	private float randY;
+	public GameObject[] spawnPoints;
 
 	private Vector2 whereToSpawn;
 
@@ -30,9 +29,9 @@ public class EnemySpawnerScript : MonoBehaviour
 	    if (Time.time > nextSpawn && spawned < spawnNumber)
 	    {
 		    nextSpawn = Time.time + spawnRate;
-		    randX = Random.Range(-7.5f, 7.5f);
-		    randY = Random.Range(-3.5f, 3.5f);
-		    whereToSpawn = new Vector2(randX, randY);
+		    int rand = Random.Range(0, spawnPoints.Length);
+			whereToSpawn = new Vector2(spawnPoints[rand].transform.position.x
+			, spawnPoints[rand].transform.position.y);
 		    Instantiate(enemy, whereToSpawn, Quaternion.identity);
 		    spawned++;
 	    }

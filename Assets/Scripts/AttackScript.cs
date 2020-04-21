@@ -19,6 +19,8 @@ public class AttackScript : MonoBehaviour
     public float attackRate = 2f;
 
     private float nextAttackTime = 0f;
+    
+    
 
     public CharHealthScript charHealth;
     // Update is called once per frame
@@ -43,8 +45,8 @@ public class AttackScript : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Enemy hit");
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            SoundManagerScript.PlaySound("hitsound");
+            enemy.GetComponent<MeleeEnemyScript>().TakeDamage(attackDamage);
         }
     }
 

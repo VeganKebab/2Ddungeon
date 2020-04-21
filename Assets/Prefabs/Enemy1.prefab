@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6764838269630089907}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.36, z: 4.1038723}
+  m_LocalPosition: {x: 0.00999999, y: -0.36, z: 4.1038723}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6764838271057360846}
@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6764838271057360833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -1.51, z: -4.1038723}
+  m_LocalPosition: {x: -0.325, y: -1.555, z: -4.1038723}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6764838269630089906}
@@ -187,6 +187,9 @@ MonoBehaviour:
   maxHealth: 100
   scoreToGive: 1
   animator: {fileID: 4651412198104098365}
+  blood: {fileID: 4616801618317372022, guid: 565dae608bf589e4cb0a3b0a6ab162be, type: 3}
+  DeathParticle: {fileID: 5692890713432989472, guid: 9b06036eaadc1394286f0ea007cba671,
+    type: 3}
   player: {fileID: 0}
 --- !u!50 &6764838271057360844
 Rigidbody2D:

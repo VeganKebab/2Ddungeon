@@ -17,11 +17,20 @@ public class CharHealthScript : MonoBehaviour
     void Update()
     {
         Healthbar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
     }
-    
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }
