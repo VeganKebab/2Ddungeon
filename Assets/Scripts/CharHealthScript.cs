@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharHealthScript : MonoBehaviour
 {
     public HealthbarScript Healthbar;
     public int maxHealth = 100;
     public int currentHealth;
+    public GameObject restart;
     void Start()
     {
         currentHealth = maxHealth;
@@ -25,12 +27,15 @@ public class CharHealthScript : MonoBehaviour
 
     void TakeDamage(int damage)
     {
+        SoundManagerScript.PlaySound("chardamage");
         currentHealth -= damage;
+        
     }
 
     void Die()
     {
-        Destroy(gameObject);
+        restart.SetActive(true);
+        gameObject.SetActive(false);
     }
 
 }

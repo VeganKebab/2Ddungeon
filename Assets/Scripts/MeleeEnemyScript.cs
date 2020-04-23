@@ -9,33 +9,32 @@ public class MeleeEnemyScript : MonoBehaviour
 
     public float speed;
     public float stoppingDistance;
-    public float destroyDistance;
     public float maxHealth;
     float currentHealth;
     public int scoreToGive;
     public Animator animator;
     public GameObject blood;
-    public GameObject DeathParticle;
+    public GameObject deathParticle;
+    public GameObject Character;
     
-    public Transform player;
     void Start()
     {
         currentHealth = maxHealth;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        Character = GameObject.Find("Character");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (Character.activeSelf)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-        else if(Vector2.Distance(transform.position, player.position) < stoppingDistance){
-            transform.position = this.transform.position;
-        }
-        else if(Vector2.Distance(transform.position, player.position) == destroyDistance){
-            Destroy(gameObject);
+            if (Vector2.Distance(transform.position, Character.transform.position) > stoppingDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, Character.transform.position, speed * Time.deltaTime);
+            }
+            else if(Vector2.Distance(transform.position, Character.transform.position) < stoppingDistance){
+                transform.position = this.transform.position;
+            }
         }
     }
 
@@ -59,7 +58,9 @@ public class MeleeEnemyScript : MonoBehaviour
 
     public void Die()
     {
-        Instantiate(DeathParticle, transform.position, Quaternion.identity);
+        Instantiate(deathParticle, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
+        SoundManagerScript.PlaySound("enemy1death");
         Destroy(gameObject);
         ScoreScript.score += scoreToGive;
     }

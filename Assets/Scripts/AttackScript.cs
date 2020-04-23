@@ -62,6 +62,7 @@ public class AttackScript : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Enemy"))
         {
+            SoundManagerScript.PlaySound("chardamage");
             charHealth.currentHealth -= 5;
         }
     }

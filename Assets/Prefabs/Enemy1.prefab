@@ -183,14 +183,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   stoppingDistance: 0
-  destroyDistance: 1
   maxHealth: 100
   scoreToGive: 1
   animator: {fileID: 4651412198104098365}
   blood: {fileID: 4616801618317372022, guid: 565dae608bf589e4cb0a3b0a6ab162be, type: 3}
-  DeathParticle: {fileID: 5692890713432989472, guid: 9b06036eaadc1394286f0ea007cba671,
+  deathParticle: {fileID: 5692890713432989472, guid: 9b06036eaadc1394286f0ea007cba671,
     type: 3}
-  player: {fileID: 0}
+  Character: {fileID: 0}
 --- !u!50 &6764838271057360844
 Rigidbody2D:
   serializedVersion: 4

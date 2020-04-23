@@ -12,10 +12,12 @@
           <e p="AttackScript.cs" t="Include" />
           <e p="CharHealthScript.cs" t="Include" />
           <e p="EnemySpawnerScript.cs" t="Include" />
+          <e p="GameOverScript.cs" t="Include" />
           <e p="HealthbarScript.cs" t="Include" />
           <e p="MeleeEnemyScript.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="RestartScript.cs" t="Include" />
           <e p="RoomScript.cs" t="Include" />
           <e p="ScoreScript.cs" t="Include" />
           <e p="SoundManagerScript.cs" t="Include" />
