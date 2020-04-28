@@ -7,8 +7,10 @@ public class CharHealthScript : MonoBehaviour
 {
     public HealthbarScript Healthbar;
     public int maxHealth = 100;
-    public int currentHealth;
+    public static int currentHealth;
     public GameObject restart;
+    public GameObject deathParticle;
+    public GameObject character;
     void Start()
     {
         currentHealth = maxHealth;
@@ -21,11 +23,12 @@ public class CharHealthScript : MonoBehaviour
         Healthbar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
+            Instantiate(deathParticle, character.transform.position, Quaternion.identity);
             Die();
         }
     }
 
-    void TakeDamage(int damage)
+    public static void TakeDamage(int damage)
     {
         SoundManagerScript.PlaySound("chardamage");
         currentHealth -= damage;

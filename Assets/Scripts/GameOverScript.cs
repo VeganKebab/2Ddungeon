@@ -10,7 +10,7 @@ public class GameOverScript : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         text.text = "Game over \n Your score: " + ScoreScript.score.ToString("0");
     }
 }

@@ -16,6 +16,11 @@ public class MeleeEnemyScript : MonoBehaviour
     public GameObject blood;
     public GameObject deathParticle;
     public GameObject Character;
+    public float attackRange = 5f;
+    public int attackPower = 5;
+    public float attackRate = 2f;
+    private float nextAttackTime = 0f;
+    public GameObject attackPoint;
     
     void Start()
     {
@@ -35,13 +40,11 @@ public class MeleeEnemyScript : MonoBehaviour
             else if(Vector2.Distance(transform.position, Character.transform.position) < stoppingDistance){
                 transform.position = this.transform.position;
             }
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player")){
-            
+            if (Vector2.Distance(transform.position, Character.transform.position) < attackRange && Time.time >= nextAttackTime)
+            {
+                CharHealthScript.TakeDamage(attackPower);
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 
@@ -63,5 +66,12 @@ public class MeleeEnemyScript : MonoBehaviour
         SoundManagerScript.PlaySound("enemy1death");
         Destroy(gameObject);
         ScoreScript.score += scoreToGive;
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.transform.position, attackRange);
     }
 }

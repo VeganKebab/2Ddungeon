@@ -56,14 +56,4 @@ public class AttackScript : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag.Equals("Enemy"))
-        {
-            SoundManagerScript.PlaySound("chardamage");
-            charHealth.currentHealth -= 5;
-        }
-    }
 }
